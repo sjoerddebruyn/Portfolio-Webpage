@@ -96,7 +96,7 @@ const Blog7 = ({
           {posts.map((post) => (
             <Card
               key={post.id}
-              className="grid grid-rows-[auto_auto_1fr_auto] overflow-hidden pt-0"
+              className="grid grid-rows-[auto_auto_1fr_auto] overflow-hidden pt-0 border-teal-light/20 hover:border-teal-medium/40 transition-colors"
             >
               <div className="aspect-16/9 w-full">
                 <Link href={`/projects/${post.id}`}
@@ -105,7 +105,7 @@ const Blog7 = ({
                 </Link>
               </div>
               <CardHeader>
-                <h3 className="text-lg font-semibold hover:underline md:text-xl">
+                <h3 className="text-lg font-semibold hover:underline md:text-xl text-teal-darkest hover:text-teal-medium transition-colors">
                   <Link href={`/projects/${post.id}`}>{post.title}</Link>
                 </h3>
               </CardHeader>
@@ -115,7 +115,7 @@ const Blog7 = ({
               <CardFooter>
                 <Link
                   href={`/projects/${post.id}`}
-                  className="text-foreground flex items-center hover:underline">
+                  className="text-teal-medium hover:text-teal-dark flex items-center hover:underline transition-colors">
                   Read more
                   <ArrowRight className="ml-2 size-4" />
                 </Link>

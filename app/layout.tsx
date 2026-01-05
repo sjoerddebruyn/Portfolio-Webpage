@@ -41,14 +41,14 @@ export default function RootLayout({
           {/* ============================================ */}
           {/* HEADER SECTION - Navigation Bar (Global) */}
           {/* ============================================ */}
-          <nav className="border-b">
+          <nav className="border-b border-teal-light/20">
             <div className="container mx-auto px-4 py-4 flex items-center justify-between">
               <NavigationMenu>
                 <NavigationMenuList>
                   <NavigationMenuItem>
                     <NavigationMenuLink
                       href="/"
-                      className="text-lg font-semibold"
+                      className="text-lg font-semibold hover:text-teal-medium transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-teal-medium after:transition-all after:duration-300 hover:after:w-full"
                     >
                       Sjoerd De Bruyn | Portfolio
                     </NavigationMenuLink>

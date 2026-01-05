@@ -89,18 +89,26 @@ const Gallery6 = ({
     };
   }, [carouselApi]);
   return (
-    <section className="py-32 flex justify-center">
-      <div className="w-full max-w-6xl px-4">
+    <section className="relative py-16 flex justify-center overflow-hidden">
+      {/* Simple subtle background */}
+      <div 
+        className="absolute inset-0 -z-10"
+        style={{
+          background: 'rgba(242, 227, 213, 0.05)'
+        }}
+      />
+      
+      <div className="w-full max-w-6xl px-4 relative z-10">
         <div className="mb-8 flex flex-col justify-between md:mb-14 md:flex-row md:items-end lg:mb-16">
           <div>
-            <h2 className="mb-3 text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6">
+            <h2 className="mb-3 text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6 text-teal-darkest">
               {heading}
             </h2>
             <a
               href={demoUrl}
-              className="group flex items-center gap-1 text-sm font-medium md:text-base lg:text-lg"
+              className="group flex items-center gap-1 text-sm font-medium md:text-base lg:text-lg text-teal-medium hover:text-teal-dark transition-colors"
             >
-              Book a demo
+              View all projects
               <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-1" />
             </a>
           </div>
@@ -112,7 +120,7 @@ const Gallery6 = ({
                 carouselApi?.scrollPrev();
               }}
               disabled={!canScrollPrev}
-              className="disabled:pointer-events-auto"
+              className="disabled:pointer-events-auto border-teal-light hover:bg-teal-light/10 hover:border-teal-medium transition-colors"
             >
               <ArrowLeft className="size-5" />
             </Button>
@@ -123,7 +131,7 @@ const Gallery6 = ({
                 carouselApi?.scrollNext();
               }}
               disabled={!canScrollNext}
-              className="disabled:pointer-events-auto"
+              className="disabled:pointer-events-auto border-teal-light hover:bg-teal-light/10 hover:border-teal-medium transition-colors"
             >
               <ArrowRight className="size-5" />
             </Button>
@@ -146,12 +154,26 @@ const Gallery6 = ({
               <CarouselItem key={item.id} className="md:max-w-[452px]">
                 <a
                   href={item.url}
-                  className="group flex flex-col justify-between"
+                  className="group flex flex-col justify-between relative"
                 >
-                  <div>
-                    <div className="aspect-3/2 flex overflow-clip rounded-xl">
-                      <div className="flex-1">
-                        <div className="relative h-full w-full origin-bottom transition duration-300 group-hover:scale-105">
+                  <div className="relative">
+                    {/* Colored gradient overlay on hover */}
+                    <div 
+                      className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(60, 166, 166, 0.15), rgba(2, 103, 115, 0.1))'
+                      }}
+                    />
+                    <div className="aspect-3/2 flex overflow-clip rounded-xl border-2 border-teal-light/30 group-hover:border-teal-medium transition-all duration-300 shadow-lg group-hover:shadow-2xl group-hover:shadow-teal-light/20">
+                      <div className="flex-1 relative">
+                        {/* Colored overlay gradient */}
+                        <div 
+                          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+                          style={{
+                            background: 'linear-gradient(to top, rgba(1, 46, 64, 0.3), transparent)'
+                          }}
+                        />
+                        <div className="relative h-full w-full origin-bottom transition duration-300 group-hover:scale-105 z-0">
                           <img
                             src={item.image}
                             alt={item.title}
@@ -161,16 +183,23 @@ const Gallery6 = ({
                       </div>
                     </div>
                   </div>
-                  <div className="mb-2 line-clamp-3 break-words pt-4 text-lg font-medium md:mb-3 md:pt-4 md:text-xl lg:pt-4 lg:text-2xl">
+                  <div className="mb-2 line-clamp-3 break-words pt-4 text-lg font-medium md:mb-3 md:pt-4 md:text-xl lg:pt-4 lg:text-2xl text-teal-darkest group-hover:text-teal-medium transition-colors">
                     {item.title}
                   </div>
                   <div className="text-muted-foreground mb-8 line-clamp-2 text-sm md:mb-12 md:text-base lg:mb-9">
                     {item.summary}
                   </div>
-                  <div className="flex items-center text-sm">
+                  <div className="flex items-center text-sm text-teal-medium group-hover:text-teal-dark transition-colors font-medium">
                     Read more{" "}
-                    <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1 group-hover:text-teal-dark" />
                   </div>
+                  {/* Colored accent bar */}
+                  <div 
+                    className="mt-4 h-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{
+                      background: 'linear-gradient(to right, #3CA6A6, #026773)'
+                    }}
+                  />
                 </a>
               </CarouselItem>
             ))}

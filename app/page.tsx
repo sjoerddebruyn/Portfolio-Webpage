@@ -1,5 +1,9 @@
 import { Hero1 } from "@/components/hero";
 import { Gallery6 } from "@/components/gallery";
+import { SkillsShowcase } from "@/components/skills_showcase";
+import { AboutPreview } from "@/components/about_preview";
+import { StatsSection } from "@/components/stats_section";
+import { SectionDivider } from "@/components/section_divider";
 import { projects } from "@/data/projects";
 
 export default function Home() {
@@ -11,7 +15,7 @@ export default function Home() {
       <main>
         <Hero1
           heading="Hi, I'm Sjoerd De Bruyn"
-          description="I design and build modern web experiences with Next.js, TypeScript, and Tailwind CSS."
+          description="I'm a US based cyber security professional with a passion for building secure and scalable systems."
           buttons={{
             primary: { text: "View my projects", url: "/projects" },
             secondary: { text: "Contact me", url: "/contact" },
@@ -21,6 +25,12 @@ export default function Home() {
             alt: "Preview of Sjoerd's portfolio projects",
           }}
         />
+
+        <SectionDivider />
+
+        <StatsSection />
+
+        <SectionDivider />
 
         <Gallery6
           heading="Featured Projects"
@@ -35,6 +45,14 @@ export default function Home() {
               image: project.image,
             }))}
         />
+
+        <SectionDivider />
+
+        <SkillsShowcase />
+
+        <SectionDivider />
+
+        <AboutPreview />
       </main>
     </>
   );

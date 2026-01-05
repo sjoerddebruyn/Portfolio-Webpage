@@ -44,37 +44,45 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  
+  /* Custom Color Palette */
+  --color-teal-darkest: #012E40;
+  --color-teal-dark: #024959;
+  --color-teal-medium: #026773;
+  --color-teal-light: #3CA6A6;
+  --color-cream: #F2E3D5;
+  
+  --background: oklch(0.99 0 0);
   --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
+  --card: oklch(0.99 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  --primary: #026773;
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
+  --secondary: #F2E3D5;
+  --secondary-foreground: #012E40;
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --accent: #3CA6A6;
+  --accent-foreground: oklch(0.145 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
+  --ring: #3CA6A6;
+  --chart-1: #026773;
+  --chart-2: #3CA6A6;
+  --chart-3: #024959;
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary: #026773;
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-accent: #F2E3D5;
+  --sidebar-accent-foreground: #012E40;
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar-ring: #3CA6A6;
 }
 
 .dark {
@@ -84,31 +92,31 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
+  --primary: #3CA6A6;
+  --primary-foreground: #012E40;
+  --secondary: #024959;
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
+  --accent: #026773;
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
+  --ring: #3CA6A6;
+  --chart-1: #3CA6A6;
+  --chart-2: #026773;
+  --chart-3: #024959;
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-primary: #3CA6A6;
+  --sidebar-primary-foreground: #012E40;
+  --sidebar-accent: #024959;
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar-ring: #3CA6A6;
 }
 
 @layer base {
@@ -117,5 +125,62 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  
+  /* Minimal color splashes */
+  a {
+    @apply transition-colors;
+  }
+  
+  a:hover {
+    color: var(--color-teal-medium);
+  }
+  
+  /* Subtle accent on focus */
+  :focus-visible {
+    outline-color: var(--color-teal-light);
+  }
+}
+
+/* Custom utility classes for color splashes */
+@layer utilities {
+  .text-teal-darkest {
+    color: var(--color-teal-darkest);
+  }
+  
+  .text-teal-dark {
+    color: var(--color-teal-dark);
+  }
+  
+  .text-teal-medium {
+    color: var(--color-teal-medium);
+  }
+  
+  .text-teal-light {
+    color: var(--color-teal-light);
+  }
+  
+  .bg-teal-darkest {
+    background-color: var(--color-teal-darkest);
+  }
+  
+  .bg-teal-dark {
+    background-color: var(--color-teal-dark);
+  }
+  
+  .bg-teal-medium {
+    background-color: var(--color-teal-medium);
+  }
+  
+  .bg-teal-light {
+    background-color: var(--color-teal-light);
+  }
+  
+  .bg-cream {
+    background-color: var(--color-cream);
+  }
+  
+  .border-teal-light {
+    border-color: var(--color-teal-light);
   }
 }
